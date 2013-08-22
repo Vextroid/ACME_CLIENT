@@ -167,7 +167,7 @@ public class Main implements Serializable{
             }
             else
             {
-                System.out.println("Maximum amount of Savings account have been made for Customer ID " + c_id);
+                System.out.println("Maximum amount of Savings accounts have been made for Customer ID " + c_id);
             }
         }
         else if(choice == 3)
@@ -191,18 +191,28 @@ public class Main implements Serializable{
             System.out.print("Current Balance: $");
             int i = savingsBean.getBalance(accNum);
             System.out.println(i);
-            System.out.println(accNum);
+            //System.out.println(accNum);
             
             count++;
         }
+        else if(choice == 0)
+        {
+            System.out.println("Logging Out...");
+            break;
+        }
         else
         { 
-            count = 10;
+            count++;
         }
      }
-     while(choice != 0 || count != 10);
+     while((count <=10));
+     
+     if(count >=10)
+     {
+     System.out.println("Maximum amount of operations reached this session.");
      System.out.println("Logging Out...");
-
+     }
+     
     }
     else
     {
