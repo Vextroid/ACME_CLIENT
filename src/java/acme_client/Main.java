@@ -146,6 +146,8 @@ public class Main implements Serializable{
             int c_id;
             String accNum;
             int balance;
+            boolean isMax;
+            
             System.out.println("Creating a Savings Account: ");
             System.out.println("Enter the Customer ID: ");
             c_id = scan.nextInt();
@@ -156,8 +158,17 @@ public class Main implements Serializable{
             
             System.out.println(c_id + accNum + balance);
             
+            isMax = savingsBean.maxSavings(c_id);
+            if (isMax == true)
+            {
+            System.out.println("Creating savings account...");
             savingsBean.createSavingsAccount(c_id, accNum, balance);
             count++;
+            }
+            else
+            {
+                System.out.println("Maximum amount of Savings account have been made for Customer ID " + c_id);
+            }
         }
         else if(choice == 3)
         {
