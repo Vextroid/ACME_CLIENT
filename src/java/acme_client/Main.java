@@ -68,7 +68,7 @@ public class Main implements Serializable{
     //for date need to subtract 1900 and -1   
     
     //Creating Savings Account
-    savingsBean.createSavingsAccount(2, "Con321", 1000);
+    //savingsBean.createSavingsAccount(2, "Con321", 1000);
    
   //FINDING EMPLOYEE // SIMPLE LOG IN SYSTEM AND MENU  
     System.out.println("Employee Login");
@@ -99,10 +99,10 @@ public class Main implements Serializable{
         System.out.println("MENU SYSTEM " + "Number of Operations this session: " + count);
         System.out.println("-------------------------------");
         System.out.println("1) Register a new customer");
-        System.out.println("2) Open a Savings Account (To be implemented)");
-        System.out.println("3) Savings Account -- Deposit");
-        System.out.println("4) Savings Account -- Withdrawl");
-        System.out.println("5) Savings Account -- Balance");
+        System.out.println("2) Open a Savings Account");
+        System.out.println("3) Savings Account -- Deposit (To be implemented)");
+        System.out.println("4) Savings Account -- Withdrawl (To be implemented)");
+        System.out.println("5) Savings Account -- Balance (To be implemented)");
         System.out.println("0) Log Out");
         System.out.println("-------------------------------");
         System.out.println("Make a selection: ");
@@ -141,7 +141,7 @@ public class Main implements Serializable{
             //customerBean.addCustomer("Tony", "Conners", new Date(1966-1900,7-1,3), "154 Arberdeen Ave.");
             //for date need to subtract 1900 and -1  
              count ++;
-             choice = -1;
+             //choice = -1;
         }
         else if (choice == 2)
         {
@@ -171,6 +171,7 @@ public class Main implements Serializable{
             else
             {
                 System.out.println("Maximum amount of Savings accounts have been made for Customer ID " + c_id);
+                count++;
             }
         }
         else if(choice == 3)
@@ -187,12 +188,15 @@ public class Main implements Serializable{
         {
          //VIEW BALANCE
             String accNum;
+            int cid = 0;
             
             System.out.println("View Balance");
+            System.out.println("Enter a Cutomer ID : ");
+            cid = scan.nextInt();
             System.out.println("Enter an Account Number: ");
             accNum = scan.next();
             System.out.print("Current Balance: $");
-            int i = savingsBean.getBalance(accNum);
+            int i = savingsBean.getBalance(cid,accNum);
             System.out.println(i);
             //System.out.println(accNum);
             
@@ -203,9 +207,10 @@ public class Main implements Serializable{
             System.out.println("Logging Out...");
             break;
         }
-        else
+        else if (choice < 0 || choice > 5)
         { 
-            count++;
+            System.out.println("Invalid choice. Choose an availible menu choise.");
+            //count++;
         }
      }
      while((count <=10));
