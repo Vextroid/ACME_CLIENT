@@ -79,11 +79,11 @@ public class Main implements Serializable{
     System.out.println("");
     System.out.print("Enter employee Name: ");
     name = scan.next();
-    System.out.println(name);
-    System.out.println(emp);
+    //System.out.println(name);
+    //System.out.println(emp);
     
     emp = employeeBean.readEmployee(id) ;
-    System.out.println(emp);
+    //System.out.println(emp);
     //String emp = "1";
     //String emp = employeeBean.readEmployee(id);
     //String emp = employeeBean.readEmployee(name).toString();
@@ -177,6 +177,21 @@ public class Main implements Serializable{
         else if(choice == 3)
         {
          //DEPOSIT
+            int c_id;
+            String accNum;
+            int amount;
+            String desc;
+            
+            System.out.println("Making a deposit: ");
+            System.out.println("Enter the Customer ID: ");
+            c_id = scan.nextInt();
+            System.out.println("Enter an Account Number: ");
+            accNum = scan.next();     
+            System.out.println("Enter the Amount $: ");
+            amount = scan.nextInt(); 
+            System.out.println("Enter a description: ");
+            desc = scan.next(); 
+            
             count++;
         }
         else if(choice == 4)
