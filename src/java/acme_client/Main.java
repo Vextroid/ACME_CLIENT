@@ -190,7 +190,8 @@ public class Main implements Serializable{
             System.out.println("Enter the Amount $: ");
             amount = scan.nextInt(); 
             System.out.println("Enter a description: ");
-            desc = scan.next(); 
+            desc = scan.nextLine();
+            scan.nextLine();
             
             count++;
         }
