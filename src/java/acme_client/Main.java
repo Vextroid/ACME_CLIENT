@@ -204,7 +204,7 @@ public class Main implements Serializable{
         else if(choice == 4)
         {
          //WITHDRAWL
-                        int c_id;
+            int c_id;
             String accNum;
             int amount;
             String desc;
