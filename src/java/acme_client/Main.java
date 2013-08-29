@@ -5,6 +5,7 @@ package acme_client;
 import beans.CustomerBeanRemote;
 import beans.EmployeeBeanRemote;
 import beans.SavingsBeanRemote;
+import beans.TransactionBeanRemote;
 //import beans.ShoppingCartRemote;
 import java.io.Serializable;
 import java.sql.Date;
@@ -32,6 +33,9 @@ public class Main implements Serializable{
     
     @EJB
     private static SavingsBeanRemote savingsBean;
+    
+    @EJB
+    private static TransactionBeanRemote transBean;
     
     //TUTORITAL 4
     //@EJB
@@ -193,11 +197,30 @@ public class Main implements Serializable{
             desc = scan.nextLine();
             scan.nextLine();
             
+            transBean.deposit(c_id, accNum, amount, desc);
+            
             count++;
         }
         else if(choice == 4)
         {
          //WITHDRAWL
+                        int c_id;
+            String accNum;
+            int amount;
+            String desc;
+            
+            System.out.println("Making a withdrawl: ");
+            System.out.println("Enter the Customer ID: ");
+            c_id = scan.nextInt();
+            System.out.println("Enter an Account Number: ");
+            accNum = scan.next();     
+            System.out.println("Enter the Amount $: ");
+            amount = scan.nextInt(); 
+            System.out.println("Enter a description: ");
+            desc = scan.nextLine();
+            scan.nextLine();
+            
+            transBean.withdrawl(c_id, accNum, amount, desc);
             count++;
         }
         else if(choice == 5)
