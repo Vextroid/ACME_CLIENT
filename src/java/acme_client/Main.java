@@ -9,6 +9,8 @@ import beans.TransactionBeanRemote;
 //import beans.ShoppingCartRemote;
 import java.io.Serializable;
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import javax.ejb.EJB;
 // Below is main method |||Test again
@@ -104,9 +106,10 @@ public class Main implements Serializable{
         System.out.println("-------------------------------");
         System.out.println("1) Register a new customer");
         System.out.println("2) Open a Savings Account");
-        System.out.println("3) Savings Account -- Deposit (To be implemented)");
-        System.out.println("4) Savings Account -- Withdrawl (To be implemented)");
-        System.out.println("5) Savings Account -- Balance (To be implemented)");
+        System.out.println("3) Savings Account -- Deposit ");
+        System.out.println("4) Savings Account -- Withdrawl ");
+        System.out.println("5) Savings Account -- Balance ");
+        System.out.println("6) Savings Account -- View All Transactions (WIP) ");
         System.out.println("0) Log Out");
         System.out.println("-------------------------------");
         System.out.println("Make a selection: ");
@@ -223,11 +226,20 @@ public class Main implements Serializable{
             System.out.println("Enter a description: ");
             scan.next();
             desc = scan.nextLine();
-            System.out.println("TITLE" + desc);
+            //System.out.println("TITLE" + desc);
             int bal = savingsBean.getBalance(c_id,accNum);
             bal =  bal - amount;
+            
+            if(bal >0)
+            {
             transBean.withdrawl(c_id, accNum, bal, desc);
             count++;
+            }
+            else
+            {
+                System.out.println("Insuffcient funds to withdraw!");
+                count++;
+            }
         }
         else if(choice == 5)
         {
@@ -246,6 +258,21 @@ public class Main implements Serializable{
             //System.out.println(accNum);
             
             count++;
+        }else if(choice == 6)
+        {
+            //View all transactions
+            String accNum;
+            int cid = 0;
+            List transactions = new ArrayList();
+            
+            System.out.println("View all transactions");
+            System.out.println("Enter a Cutomer ID : ");
+            cid = scan.nextInt();
+            System.out.println("Enter an Account Number: ");
+            accNum = scan.next();  
+            
+            transactions = transBean.viewAllTransactions(accNum);
+            
         }
         else if(choice == 0)
         {
