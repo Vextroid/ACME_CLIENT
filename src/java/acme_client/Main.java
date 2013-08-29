@@ -195,10 +195,13 @@ public class Main implements Serializable{
             amount = scan.nextInt(); 
             System.out.println("Enter a description: ");
             scan.nextLine();
-            desc = scan.next();
-            System.out.println("TEXTTTTTTTTTTTTTTTTTT");
-            System.out.println("TITLE" + desc);
-            transBean.deposit(c_id, accNum, amount, desc);
+            desc = scan.nextLine();
+            //System.out.println("TEXTTTTTTTTTTTTTTTTTT");
+            //System.out.println("TITLE" + desc);
+            int bal = savingsBean.getBalance(c_id,accNum);
+            bal = bal+amount;
+            System.out.println(bal);
+            transBean.deposit(c_id, accNum, bal, desc);
             
             count++;
         }
@@ -218,10 +221,12 @@ public class Main implements Serializable{
             System.out.println("Enter the Amount $: ");
             amount = scan.nextInt(); 
             System.out.println("Enter a description: ");
-            scan.nextLine();
-            desc = scan.next();
+            scan.next();
+            desc = scan.nextLine();
             System.out.println("TITLE" + desc);
-            transBean.withdrawl(c_id, accNum, amount, desc);
+            int bal = savingsBean.getBalance(c_id,accNum);
+            bal =  bal - amount;
+            transBean.withdrawl(c_id, accNum, bal, desc);
             count++;
         }
         else if(choice == 5)
