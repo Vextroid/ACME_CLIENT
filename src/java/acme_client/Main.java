@@ -194,9 +194,10 @@ public class Main implements Serializable{
             System.out.println("Enter the Amount $: ");
             amount = scan.nextInt(); 
             System.out.println("Enter a description: ");
-            desc = scan.nextLine();
             scan.nextLine();
-            
+            desc = scan.next();
+            System.out.println("TEXTTTTTTTTTTTTTTTTTT");
+            System.out.println("TITLE" + desc);
             transBean.deposit(c_id, accNum, amount, desc);
             
             count++;
@@ -217,9 +218,9 @@ public class Main implements Serializable{
             System.out.println("Enter the Amount $: ");
             amount = scan.nextInt(); 
             System.out.println("Enter a description: ");
-            desc = scan.nextLine();
             scan.nextLine();
-            
+            desc = scan.next();
+            System.out.println("TITLE" + desc);
             transBean.withdrawl(c_id, accNum, amount, desc);
             count++;
         }
