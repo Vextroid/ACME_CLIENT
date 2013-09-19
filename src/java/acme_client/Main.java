@@ -76,6 +76,20 @@ public class Main implements Serializable{
     //Creating Savings Account
     //savingsBean.createSavingsAccount(2, "Con321", 1000);
    
+    
+    //MESSAGE BEAN TEST BED
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    //PART 1 HERE
   //FINDING EMPLOYEE // SIMPLE LOG IN SYSTEM AND MENU  
     System.out.println("Employee Login");
     System.out.println("-------------------------------");
